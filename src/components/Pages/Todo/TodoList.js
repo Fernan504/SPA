@@ -1,11 +1,11 @@
 import { MdDone, MdDelete} from 'react-icons/md';
 
-function TodoListItem({descripcion, id, completed, doneHandler, deleteHandler}){
+function TodoListItem({descripcion, id, fb_id, completed, doneHandler, deleteHandler}){
     const onClick = (e)=>{
-        doneHandler(id);
+        doneHandler(fb_id);
       }
       const onDeleteClick = (e)=>{
-        deleteHandler(id);
+        deleteHandler(fb_id);
       }
     
       const myClass = (completed)?"striked": "";
@@ -25,9 +25,10 @@ function TodoList({todos, doneHandler, deleteHandler}){
     const todoItems = todos.map((o)=>{
       return (
         <TodoListItem
-          key={o.doneHandlerid}
+          key={o.id}
           descripcion={o.description}
           id={o.id}
+          fb_id={o.fb_id}
           completed={o.completed}
           doneHandler={doneHandler}
           deleteHandler={deleteHandler}
